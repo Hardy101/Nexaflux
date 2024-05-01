@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 from django.http import JsonResponse
+from django.db.models import Q
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -9,19 +10,26 @@ from .serializers import CoinSerializer, AlertSerializer
 
 
 # Create your views here.
-class CoinCreate(generics.ListCreateAPIView):
+class CoinList(generics.ListCreateAPIView):
     queryset = Coin.objects.all()
     serializer_class = CoinSerializer
+    
 
-    def delete(self, request, *args, **kwargs):
-        Coin.objects.all().delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    # def delete(self, request, *args, **kwargs):
+    #     Coin.objects.all().delete()
+    #     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class CoinRetrieve(generics.RetrieveAPIView):
+class CoinRetrieve(generics.ListAPIView):
     queryset = Coin.objects.all()
     serializer_class = CoinSerializer
     lookup_field = 'coinSymbol'
+    # def get_queryset(self):
+    #     coinSymbol = self.request.query_params.get('coinSymbol', None)
+    #     if coinSymbol:
+    #         return Coin.objects.filter(coinSymbol__icontains=coinSymbol)
+    #     else:
+    #         return Coin.objects.all()
 
 
 class AlertsRetrieve(generics.ListAPIView):
