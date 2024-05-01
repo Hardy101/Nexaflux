@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primaryGray: "#d2dde9",
+              secGray: "#5f5f5f",
+              primaryBlue: "#98ABEE",
+              secBlue: "#7a7fff",
+              primaryRed: "#DA5555",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- - Lato -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- - Archivo Black -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <!-- - Montserrat -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <title>NexaFlux</title>
+  </head>
+  <body>
+    <section class="h-screen flex flex-row blue-bg p-5 md:p-0">
+      <div class="hidden md:grid w-3/5 h-full text-center login md:blue-bg">
+        <div class="m-auto">
+          <img
+            src="assets/img/logo/logo dark.png"
+            class="m-auto w-4/5"
+            alt=""
+          />
+          <!-- <h1 class="text-5xl montserrat-bold text-white">NexaFlux</h1> -->
+          <p class="w-4/5 mx-auto mt-5 text-primaryGray montserrat-medium">
+            Track your digital assets and perform confirmatory market analysis
+            with ease
+          </p>
+        </div>
+      </div>
+      <div
+        class="w-full h-full m-auto p-6 bg-white rounded-2xl md:rounded-none md:p-16 md:w-2/5"
+      >
+        <form action="" class="lato">
+          <div class="text-3xl montserrat-bold md:text-5xl">
+            <h1>NexaFlux</h1>
+          </div>
+
+          <div class="form-control mt-12 mb-5">
+            <span class="montserrat-bold text-3xl text-secBlue">Sign in</span>
+          </div>
+          <div class="form-control mb-5 text-sm font-medium">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Your Email"
+              class="w-full p-3 outline-none border border-primaryGray rounded-md"
+            />
+          </div>
+          <div class="form-control mb-5 text-sm font-medium">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Your Password"
+              class="w-full p-3 outline-none border border-primaryGray rounded-md"
+            />
+          </div>
+          <div class="form-control mb-5 flex justify-between lato">
+            <div>
+              <input type="checkbox" name="rme" id="rme" />
+              <span class="font-medium text-secGray">Remember me</span>
+            </div>
+          </div>
+          <div class="form-control mb-5">
+            <button
+              class="w-full bg-secBlue font-bold rounded-full text-white py-2"
+            >
+              Sign In
+            </button>
+          </div>
+          <div class="form-control lato">
+            <p>
+              Don't have an account?
+              <a href="register.html" class="font-medium text-secBlue"
+                >Sign up here</a
+              >
+            </p>
+          </div>
+          <div class="form-control flex flex-row gap-2 mt-52 md:mt-24">
+            <a
+              href="#"
+              class="text-secGray border border-primaryGray rounded-full px-1 text-xl"
+              ><i class="uil uil-github"></i
+            ></a>
+            <a
+              href="#"
+              class="text-secGray border border-primaryGray rounded-full px-1 text-xl"
+            >
+              <i class="uil uil-twitter"></i
+            ></a>
+          </div>
+          <div
+            class="form-control grid gap-y-2 text-secGray text-sm lato font-medium mt-5"
+          >
+            <div class="flex gap-3">
+              <a href="#" class="">Home</a>
+              <a href="#" class="">Dashboard</a>
+              <a href="#" class="">About NexaFlux</a>
+            </div>
+            <p class="col-span-3">&copy; 2024 NexaFlux. All Right Reserved.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

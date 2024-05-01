@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primaryGray: "#A8A8A8",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- - Lato -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- - Archivo Black -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <!-- - Montserrat -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>NexaFlux</title>
+  </head>
+  <body>
+    <nav>
+      <div class="flex justify-between lato-regular p-6">
+        <a href="#" class="w-1/5"
+          ><img
+            src="{% static 'assets/img/logo/logo light.png' %}"
+            width="100%"
+            alt=""
+        /></a>
+        {% with request.resolver_match.url_name as url_name %}
+        <ul class="flex justify-center my-auto gap-1">
+          <li>
+            <a
+              href="{% url 'main:home' %}"
+              class="{%if url_name == 'home' %} {%else%}text-primaryGray {%endif%}"
+              >Home</a
+            >
+          </li>
+          <li>.</li>
+          <li>
+            <a
+              href="{% url 'main:dashboard' %}"
+              class="{%if url_name == 'dashboard' %} {%else%}text-primaryGray {%endif%}"
+              >Dashboard</a
+            >
+          </li>
+          <li>.</li>
+          <li><a href="" class="text-primaryGray">About Us</a></li>
+        </ul>
+        {% endwith %}
+        <a href="mailto:support@nexaflux.com" class="my-auto"
+          >/support@nexaflux.com</a
+        >
+      </div>
+    </nav>
+    {% block main %} {% endblock %}
+  </body>
+</html>

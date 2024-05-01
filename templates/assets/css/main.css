@@ -1,0 +1,44 @@
+@layer utilities {
+  * {
+    transition: all 0.3s ease-in-out;
+  }
+  .content-auto {
+    content-visibility: auto;
+  }
+  /* Fonts */
+  .lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .archivo-black-regular {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .montserrat-regular {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .montserrat-medium {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .montserrat-bold {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700 !important;
+    font-style: normal;
+  }
+
+  /* Main classes */
+  .blue-bg {
+    background-image: url("../img/bg/bg-login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

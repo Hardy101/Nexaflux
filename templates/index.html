@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<main>
+  <section id="hero" class="hero">
+    <div class="flex flex-col text-center py-5">
+      <p
+        class="flex justify-center gap-3 mb-5 text-primaryGray montserrat-bold"
+      >
+        <img
+          src="{% static 'assets/img/Line 1.png' %}"
+          class="my-auto"
+          alt=""
+        />
+        <span>TRACK MARKET</span>
+      </p>
+      <p class="text-5xl w-3/5 mb-10 mx-auto archivo-black-regular">
+        RECEIVE SMS NOTIFICATIONS WHEN PRICES HIT TARGET LEVELS
+      </p>
+      <img
+        src="{% static 'assets/img/target.png' %}"
+        class="w-2/12 mx-auto mb-10"
+        alt=""
+      />
+      <p class="montserrat-bold">
+        Keep track of the latest prices and trends in the cryptocurrency market
+      </p>
+    </div>
+  </section>
+</main>
+{% endblock %}

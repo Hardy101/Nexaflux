@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<main>
+  <section id="dashboard" class="dashboard">
+    <div class="p-6">
+      <div id="dashboard-header" class="text-4xl montserrat-bold">
+        <h1 class="montserrat-bold">Price Alerts</h1>
+      </div>
+      <div id="dashboard-nav">
+        <ul class="flex flex-row gap-3 mt-2 montserrat-bold">
+          <li><button>All</button></li>
+          <li>
+            <button class="text-primaryGray">Active</button>
+          </li>
+          <li>
+            <button class="text-primaryGray">Disabled</button>
+          </li>
+          <li>
+            <button class="text-primaryGray">Fulfilled</button>
+          </li>
+        </ul>
+      </div>
+      <div id="dashboard-body" class="flex gap-5 mt-5">
+        <div
+          class="price-div flex gap-4 hover:bg-secGray hover:scale-105 cursor-pointer"
+        >
+          <span class="my-auto montserrat-bold" id="number">#1</span>
+          <p class="flex flex-col montserrat-regular" id="info">
+            <span
+              ><b>BTC</b> rises to <b class="text-primaryBlue">$72000</b></span
+            >
+            <span class="text-sm">created March 20, 2024</span>
+          </p>
+          <button class="my-auto w-1/12">
+            <img src="{% static 'assets/img/delete.png' %}" alt="" />
+          </button>
+        </div>
+        <img src="{% static 'assets/img/Line 2.png' %}" alt="" />
+        <div class="price-div flex gap-4">
+          <span class="my-auto montserrat-bold">#2</span>
+          <p class="flex flex-col montserrat-regular">
+            <span><b>ENA</b> drops to <b class="text-primaryRed">$2.5</b></span>
+            <span class="text-sm">created March 20, 2024</span>
+          </p>
+          <button class="my-auto w-1/12">
+            <img src="{% static 'assets/img/delete.png' %}" alt="" />
+          </button>
+        </div>
+        <img src="{% static 'assets/img/Line 2.png' %}" alt="" />
+      </div>
+    </div>
+  </section>
+  <button
+    class="fixed bottom-5 right-5 bg-[#5a69e6] text-white text-sm px-5 py-2 montserrat-regular font-medium rounded-full"
+  >
+    <i class="uil uil-plus"></i>
+    Add Alert
+  </button>
+</main>
+{% endblock %}
