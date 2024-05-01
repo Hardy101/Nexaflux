@@ -18,7 +18,6 @@ class CoinCreate(generics.ListCreateAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-
 class CoinRetrieve(generics.RetrieveAPIView):
     queryset = Coin.objects.all()
     serializer_class = CoinSerializer
@@ -30,16 +29,21 @@ class AlertsRetrieve(generics.ListAPIView):
     serializer_class = AlertSerializer
 
 
-class AlertList(APIView):
-    def get(self, request, format=None):
-        title = request.query_paramter_get('title', '')
+class CoinList(APIView):
+    serializer_class = CoinSerializer
 
-        if title:
-            alerts = Alert.objects.filter(title_icontains=title)
-        else:
-            alerts = Alert.objects.all()
-        serializer = AlertSerializer(alerts, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    def get_queryset(self):
+        title = 'BTC'
+        alerts = Alert.objects.filter(title_icontains=title)
+    # def get(self, request, format=None):
+    #     title = request.query_paramter_get('title', '')
+
+    #     if title:
+    #         alerts = Alert.objects.filter(title_icontains=title)
+    #     else:
+    #         alerts = Alert.objects.all()
+    #     serializer = AlertSerializer(alerts, many=True)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 # @api_view(['GET'])

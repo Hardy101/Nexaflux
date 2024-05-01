@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.widgets import TextInput, NumberInput
-from alerts_and_data.models import Alert, Coin
+from alerts_and_data.models import Alert
 
 # - Create Alert form
 class CreateAlertForm(forms.ModelForm):
@@ -15,10 +15,10 @@ class CreateAlertForm(forms.ModelForm):
 
 
 # - Add coin form
-class AddCoinForm(forms.ModelForm):
-    coinName = forms.CharField(widget=TextInput)
-    coinSymbol = forms.CharField(widget=TextInput)
+# class AddCoinForm(forms.ModelForm):
+#     coinName = forms.CharField(widget=TextInput)
+#     coinSymbol = forms.CharField(widget=TextInput)
 
-    class Meta:
-        object = Coin
-        fields = ['coinName', 'coinSymbol']
+#     class Meta:
+#         object = Coin
+#         fields = ['coinName', 'coinSymbol']
