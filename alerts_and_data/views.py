@@ -36,7 +36,7 @@ class CoinSearch(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 
-class DeleteCoinView(generics.DestroyAPIView):
-    queryset = Coin.objects.all()
-    serializer_class = CoinSerializer
-    lookup_field = 'coinSymbol'
+class DeleteAlertView(generics.DestroyAPIView):
+    queryset = Alert.objects.all()
+    serializer_class = AlertSerializer
+    lookup_field = 'pk'
