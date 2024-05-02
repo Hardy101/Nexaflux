@@ -9,7 +9,7 @@ class AlertAdmin(admin.ModelAdmin):
 
 
 class CoinAdmin(admin.ModelAdmin):
-    list_display = ['coinName', 'coinSymbol']
+    list_display = ['id', 'coinName', 'coinSymbol']
 
 admin.site.register(Alert, AlertAdmin)
 admin.site.register(Coin, CoinAdmin)

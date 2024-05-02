@@ -1,6 +1,11 @@
+from django.shortcuts import redirect
 from rest_framework import generics
 from .models import Coin, Alert
 from .serializers import CoinSerializer, AlertSerializer
+# -
+from rest_framework.views import APIView
+from rest_framework import status
+from rest_framework.response import Response
 
 
 
@@ -13,3 +18,25 @@ class CoinList(generics.ListAPIView):
 class AlertsRetrieve(generics.ListAPIView):
     queryset = Alert.objects.all()
     serializer_class = AlertSerializer
+
+
+class CoinSearch(APIView):
+    def get(self, request, *args, **kwargs):
+        coinSymbol = request.query_params.get('coinSymbol')
+
+        if not coinSymbol:
+            return Response("coinSymbol parameter is required.", status=status.HTTP_400_BAD_REQUEST)
+
+        coins = Coin.objects.filter(coinSymbol__icontains=coinSymbol)
+        
+        if not coins:
+            return Response("Coin not found.", status=status.HTTP_404_NOT_FOUND)
+
+        serializer = CoinSerializer(coins, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+class DeleteCoinView(generics.DestroyAPIView):
+    queryset = Coin.objects.all()
+    serializer_class = CoinSerializer
+    lookup_field = 'coinSymbol'
