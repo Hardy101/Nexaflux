@@ -10,4 +10,5 @@ class CoinSerializer(serializers.ModelSerializer):
 class AlertSerializer(serializers.ModelSerializer):
     class Meta:
         model = Alert
-        fields = ['id', 'coin','target_type', 'target', 'date_created']
+        # fields = ['id', 'coin','target_type', 'target', 'date_created']
+        fields = '__all__'
