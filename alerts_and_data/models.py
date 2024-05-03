@@ -9,6 +9,7 @@ class Alert(models.Model):
     target = models.DecimalField(max_digits=10, decimal_places=4 , null=False)
     date_created = models.CharField(max_length=20, null=False)
     validuntil = models.DateTimeField(default=datetime.now().strftime("%Y-%m-%d %H:%M"))
+    status = models.TextField(default='active')
 
 
 # Coin list model
