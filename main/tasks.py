@@ -2,6 +2,7 @@ from celery import shared_task
 import requests
 from datetime import datetime
 from time import sleep
+from django_celery_beat.models import PeriodicTask, IntervalSchedule
 
 # VARIABLES
 ENDPOINT = 'https://api.npoint.io/fc1045cc362997a2adb3'
@@ -24,8 +25,15 @@ def check_alerts():
             hello_world.appy_async()
 
 @shared_task
-def my_dummy():
-    for i in range(11):
-        print(i)
-        sleep(i)
-    return 'Task complete'
+def dummy():
+    interval, _ = IntervalSchedule.objects.get_or_create(
+        every=30,
+        period=IntervalSchedule.SECONDS
+    )
+
+    PeriodicTask.objects.create(
+        interval=interval,
+        Name='dummy1',
+        task='main.tasks.dummy',
+
+    )
