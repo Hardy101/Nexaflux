@@ -14,8 +14,8 @@ class Alert(models.Model):
     validuntil = models.DateTimeField(default=django.utils.timezone.now)
     STATUS_CHOICES = [
         ('active', 'Active'),
-        ('inactive', 'Inactive'),
-        ('expired', 'Expired'),
+        ('disabled', 'Disabled'),
+        ('fulfilled', 'Fullfilled'),
     ]
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')
 
