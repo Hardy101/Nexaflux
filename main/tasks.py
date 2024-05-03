@@ -21,4 +21,4 @@ def check_alerts():
         valid_until = datetime.strptime(alert_data['validuntil'], '%Y-%m-%d %H:%M:%S')
         if current_time < valid_until:
             # Schedule a task for each due alert
-            hello_world.CELE()
+            hello_world.asy()
