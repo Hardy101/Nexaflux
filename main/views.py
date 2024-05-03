@@ -3,6 +3,8 @@ from django.http import HttpResponse, JsonResponse
 from .forms import CreateAlertForm
 import requests
 from datetime import datetime
+# Tasks
+from .tasks import my_dummy
 
 # VARIABLES
 ENDPOINT = 'https://api.npoint.io/fc1045cc362997a2adb3'
@@ -42,3 +44,7 @@ def check_alerts(request):
             return HttpResponse('True')
         else:
             return HttpResponse('False')
+    
+def dummy(request):
+    my_dummy.delay()
+    return HttpResponse('Task check completed')

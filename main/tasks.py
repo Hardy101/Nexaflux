@@ -1,7 +1,7 @@
 from celery import shared_task
 import requests
 from datetime import datetime
-from .models import Alert
+from time import sleep
 
 # VARIABLES
 ENDPOINT = 'https://api.npoint.io/fc1045cc362997a2adb3'
@@ -21,4 +21,11 @@ def check_alerts():
         valid_until = datetime.strptime(alert_data['validuntil'], '%Y-%m-%d %H:%M:%S')
         if current_time < valid_until:
             # Schedule a task for each due alert
-            hello_world.asy()
+            hello_world.appy_async()
+
+@shared_task
+def my_dummy():
+    for i in range(11):
+        print(i)
+        sleep(i)
+    return 'Task complete'
