@@ -10,8 +10,8 @@ class CreateAlertForm(forms.ModelForm):
     date_created = forms.CharField(widget=TextInput)
 
     class Meta:
-        object = Alert
-        fields = ['coin', 'target_type', 'target', 'date_created']
+        model = Alert
+        fields = '__all__'
 
 
 # - Add coin form

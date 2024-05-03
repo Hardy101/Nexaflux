@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .forms import CreateAlertForm
+import requests
+from datetime import datetime
+
+# VARIABLES
+ENDPOINT = 'https://api.npoint.io/fc1045cc362997a2adb3'
 
 # Create your views here.
 def index(request):
@@ -25,3 +30,15 @@ def addAlert(request):
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
             
 
+def check_alerts(request):
+    response = requests.get(ENDPOINT)
+    alert_list = response.json()
+
+    # Process the fetched data
+    current_time = datetime.now()
+    for alert_data in alert_list:
+        valid_until = datetime.strptime(alert_data['validuntil'], '%Y-%m-%d %H:%M:%S')
+        if current_time < valid_until:
+            return HttpResponse('True')
+        else:
+            return HttpResponse('False')
