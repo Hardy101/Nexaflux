@@ -115,11 +115,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+DATETIME_FORMAT="%Y-%m-%d %H:%M"
+
 TIME_ZONE = 'UTC'
+
+L10N=False
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
