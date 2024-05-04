@@ -139,11 +139,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUserModel'
-
-# CELERY
-# CELERY_BEAT_SCHEDULE = {
-#     'check-alerts-every-minute': {
-#         'task': 'main.tasks.check_alerts',
-#         'schedule': 1.8,  # Execute every minute
-#     },
-# }
