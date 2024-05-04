@@ -139,3 +139,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUserModel'
+
+
+## REDIS CONFIGURATION
+
+CELERY_BROKER_URL = 'redis://default:IHzeZpkmDicLuJbgNPlyFxPQvKuuUfnb@roundhouse.proxy.rlwy.net:44234'
+
+CELERY_ACCEPT_CONTENT = ['json']
+
+CELERY_TASK_SERIALIZER = 'json'
