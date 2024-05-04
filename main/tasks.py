@@ -16,18 +16,9 @@ def check_alerts():
     for alert_data in alert_list:
         valid_until = datetime.strptime(alert_data['validuntil'], '%Y-%m-%d %H:%M:%S')
         if current_time < valid_until:
-            dummy.appy_async()
+            # dummy.appy_async()
+            print.appy_async()
 
-@shared_task
-def dummy():
-    interval, _ = IntervalSchedule.objects.get_or_create(
-        every=30,
-        period=IntervalSchedule.SECONDS
-    )
 
-    PeriodicTask.objects.create(
-        interval=interval,
-        Name='dummy1',
-        task='main.tasks.dummy',
-
-    )
+def print_world():
+    print('hello world')

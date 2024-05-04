@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # -
     'users',
+    'main',
     'alerts_and_data',
     'rest_framework',
     'django_celery_beat',
