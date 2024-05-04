@@ -10,6 +10,7 @@ ENDPOINT = 'https://api.npoint.io/fc1045cc362997a2adb3'
 
 # Create your views here.
 def index(request):
+    print('fish')
     return render(request, 'index.html')
 
 def dashboard(request):

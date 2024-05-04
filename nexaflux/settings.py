@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from celery.beat import crontab
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'alerts_and_data',
     'rest_framework',
     'django_celery_beat',
+    'celery',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +151,11 @@ CELERY_BROKER_URL = 'redis://default:IHzeZpkmDicLuJbgNPlyFxPQvKuuUfnb@roundhouse
 CELERY_ACCEPT_CONTENT = ['json']
 
 CELERY_TASK_SERIALIZER = 'json'
+
+# myproject/settings.py
+CELERY_BEAT_SCHEDULE = {
+    'check-api-endpoint': {
+        'task': 'myproject.tasks.check_api_endpoint',
+        'schedule': crontab(minute='*/1'),  # run every 1 minute
+    },
+}
