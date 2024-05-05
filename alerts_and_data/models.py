@@ -18,6 +18,7 @@ class Alert(models.Model):
         ('fulfilled', 'Fullfilled'),
     ]
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')
+    recipient = models.CharField(max_length=15, default='+2348133560042')
 
 
 # Coin list model

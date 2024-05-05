@@ -5,7 +5,7 @@ from .models import Alert, Coin
 
 # Register your models here.
 class AlertAdmin(admin.ModelAdmin):
-    list_display = ['coin', 'target_type', 'target', 'date_created', 'validuntil', 'status']
+    list_display = ['coin', 'target_type', 'target', 'date_created', 'validuntil', 'status', 'recipient']
 
 
 class CoinAdmin(admin.ModelAdmin):

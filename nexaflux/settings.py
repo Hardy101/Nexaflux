@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-from celery.beat import crontab
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -142,11 +141,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUserModel'
 
-
-## REDIS CONFIGURATION
-
-CELERY_BROKER_URL = 'redis://default:IHzeZpkmDicLuJbgNPlyFxPQvKuuUfnb@roundhouse.proxy.rlwy.net:44234'
-
-# CELERY_ACCEPT_CONTENT = ['json']
-
-# CELERY_TASK_SERIALIZER = 'json'
