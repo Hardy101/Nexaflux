@@ -24,16 +24,21 @@ def send_sms():
       for entry in still_valid():
             print(entry['status'], entry['coin'])
 
+
 def check_price():
+    due_entries = []
     for item in still_valid():
         target = item['target']
         coin = item['coin']
         params = {
-         'fysm': coin,
+         'fsym': coin,
          'tsyms': 'USDT'
         }
-        if target:
-              due_entries.append(item)
-    return due_entries
+        data = requests.get(PRICE_ENDPOINT, params=params).json()
+        print(data)
+        price = data['USDT']
+        if int(float(target)) <= price:
+            due_entries.append(item)
+    print(due_entries)
 
      
