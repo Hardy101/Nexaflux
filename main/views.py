@@ -2,15 +2,15 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .forms import CreateAlertForm
 import requests
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 # Tasks
+
 
 # VARIABLES
 ENDPOINT = 'https://api.npoint.io/fc1045cc362997a2adb3'
 
 # Create your views here.
 def index(request):
-    print('fish')
     return render(request, 'index.html')
 
 def dashboard(request):

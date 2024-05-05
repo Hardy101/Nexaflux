@@ -1,7 +1,8 @@
+from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
-from main.management.commands.print_hello import Command
+from .tasks import schedule_api, check_api_endpoint, still_valid, send_sms
 
 def start():
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(Command().handle, 'interval', seconds=10)
-    scheduler.start()
+	scheduler = BackgroundScheduler()
+	scheduler.add_job(send_sms, 'interval', seconds=5)
+	scheduler.start()

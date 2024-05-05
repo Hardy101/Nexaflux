@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     'main',
     'alerts_and_data',
     'rest_framework',
-    'django_celery_beat',
-    'celery',
+    # 'celery',
 ]
 
 MIDDLEWARE = [
@@ -148,14 +147,6 @@ AUTH_USER_MODEL = 'users.CustomUserModel'
 
 CELERY_BROKER_URL = 'redis://default:IHzeZpkmDicLuJbgNPlyFxPQvKuuUfnb@roundhouse.proxy.rlwy.net:44234'
 
-CELERY_ACCEPT_CONTENT = ['json']
+# CELERY_ACCEPT_CONTENT = ['json']
 
-CELERY_TASK_SERIALIZER = 'json'
-
-# myproject/settings.py
-CELERY_BEAT_SCHEDULE = {
-    'check-api-endpoint': {
-        'task': 'myproject.tasks.check_api_endpoint',
-        'schedule': crontab(minute='*/1'),  # run every 1 minute
-    },
-}
+# CELERY_TASK_SERIALIZER = 'json'
