@@ -19,7 +19,8 @@ def still_valid():
         status = item['status']
         timestamp = datetime.fromisoformat(timestamp_str)
 
-        if timestamp > current_time and status == 'active':
+        # if timestamp > current_time and status == 'active':
+        if timestamp and status == 'active':
             due_entries.append(item)
              
     return due_entries
@@ -30,7 +31,7 @@ def send_sms():
 
 def check_price():
     for item in still_valid():
-        id = item['id']
+        id = item['id'] 
         target = item['target']
         coin = item['coin']
         recipient = item['recipient']
