@@ -33,17 +33,4 @@ def addAlert(request):
     else:
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
             
-
-def check_alerts(request):
-    response = requests.get(ENDPOINT)
-    alert_list = response.json()
-
-    # Process the fetched data
-    current_time = datetime.now()
-    for alert_data in alert_list:
-        valid_until = datetime.strptime(alert_data['validuntil'], '%Y-%m-%d %H:%M:%S')
-        if current_time < valid_until:
-            return HttpResponse('True')
-        else:
-            return HttpResponse('False')
     
