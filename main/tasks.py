@@ -1,4 +1,3 @@
-from django.conf import settings
 import requests
 from datetime import datetime
 from django.utils import timezone
@@ -49,5 +48,3 @@ def check_price():
         alert_instance.status = 'fulfilled'
         alert_instance.save()
 
-# if __name__ == "__main__":
-#     check_price()
