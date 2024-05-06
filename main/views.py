@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from .forms import CreateAlertForm
-import requests
-from datetime import datetime, timezone, timedelta
 from alerts_and_data import models as apimodels
-# Tasks
 
 
 # VARIABLES
