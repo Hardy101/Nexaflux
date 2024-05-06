@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .forms import CreateAlertForm
 import requests
 from datetime import datetime, timezone, timedelta
+from alerts_and_data import models as apimodels
 # Tasks
 
 
@@ -15,7 +16,8 @@ def index(request):
 
 def dashboard(request):
     form = CreateAlertForm()
-    context = {'form': form}
+    alertlist = apimodels.Alert.objects.all()
+    context = {'form': form, 'alertlist': alertlist}
     return render(request, 'dashboard.html', context=context)
 
 
