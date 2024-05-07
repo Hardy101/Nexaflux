@@ -15,6 +15,7 @@
               primaryBlue: "#98ABEE",
               secBlue: "#7a7fff",
               primaryRed: "#DA5555",
+              googleRed: "#DB4437",
             },
           },
         },
@@ -64,8 +65,14 @@
       <div
         class="relative w-full h-full m-auto p-6 bg-white rounded-2xl md:rounded-none md:p-16 md:w-2/5"
       >
-        <div class="form-control mb-12">
+        <div class="form-control mb-10">
           <span class="montserrat-bold text-3xl text-secBlue">Sign In</span>
+          <p class="lato mt-2">
+            New user?
+            <a href="{% url 'auth:register' %}" class="font-medium text-secBlue"
+              >Create an account</a
+            >
+          </p>
         </div>
         <form action="" method="post" class="lato">
           {% csrf_token %}
@@ -92,15 +99,20 @@
               Sign In
             </button>
           </div>
-          <div class="form-control lato">
-            <p>
-              Don't have an account?
-              <a
-                href="{% url 'auth:register' %}"
-                class="font-medium text-secBlue"
-                >Sign Up here</a
-              >
-            </p>
+          <div class="text-center my-5">
+            <span class="font-bold text-sm text-secGray">Or continue with</span>
+          </div>
+          <div class="form-control mb-5">
+            <button
+              class="flex w-full gap-3 justify-center border border-primaryGray font-bold rounded-full text-white py-2"
+            >
+              <img
+                src="{% static 'assets/img/google.png' %}"
+                class="w-6 my-auto"
+                alt=""
+              />
+              <span class="my-auto text-black">Google</span>
+            </button>
           </div>
         </form>
         <div class="div-footer absolute w-full bottom-10 md:relative md:mt-32">

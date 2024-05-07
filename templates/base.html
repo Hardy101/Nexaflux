@@ -66,7 +66,16 @@
           <li>.</li>
           <!-- <li><a href="" class="text-primaryGray">About Us</a></li> -->
           <li>
-            <a href="{% url 'auth:register' %}" class="text-primaryGray"
+            <a
+              href="
+            {% if user.is_authenticated %}
+            {% url 'auth:logout' %}
+            
+            {% else %}
+            {% url 'auth:register' %}
+            {% endif %}
+            "
+              class="text-primaryGray"
               >Authentication</a
             >
           </li>
