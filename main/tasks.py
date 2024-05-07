@@ -11,6 +11,7 @@ def getvaliddata():
     data = response.json()
 
     current_time = timezone.now()
+
     due_entries = []
 
     for item in data:
@@ -41,7 +42,7 @@ def updatecoinstatus(id):
 def check_price():
     for item in getvaliddata():
         id = item['id'] 
-        target = item['target']
+        targetprice = item['target']
         coin = item['coin']
         recipient = item['recipient']
         params = {'fsym': coin, 'tsyms': 'USDT'}
@@ -50,7 +51,7 @@ def check_price():
         # price = getcoinprice(parameters=params)
         
         # Printing message
-        print(f'congrats🎉 dear {recipient}, Your target of {target}USDT has been met,')
+        print(f'congrats🎉 dear {recipient}, Your target of {targetprice}USDT has been met,')
 
         # Updating status to 'fulfilled'
         updatecoinstatus(id=id)
