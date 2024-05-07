@@ -64,8 +64,14 @@
       <div
         class="relative w-full h-full m-auto p-6 bg-white rounded-2xl md:rounded-none md:p-16 md:w-2/5"
       >
-        <div class="form-control mb-12">
+        <div class="form-control mb-10">
           <span class="montserrat-bold text-3xl text-secBlue">Sign Up</span>
+          <p class="lato mt-2">
+            Have an account?
+            <a href="{% url 'auth:login' %}" class="font-medium text-secBlue"
+              >Login</a
+            >
+          </p>
         </div>
         <form action="" method="post" class="lato">
           {% csrf_token %}
@@ -95,19 +101,26 @@
               Sign Up
             </button>
           </div>
-          <div class="form-control lato">
-            <p>
-              Already have an account?
-              <a href="{% url 'auth:login' %}" class="font-medium text-secBlue"
-                >Sign In here</a
-              >
-            </p>
+          <div class="text-center my-5">
+            <p class="font-bold text-sm text-secGray line">or continue with</p>
+          </div>
+          <div class="form-control mb-5">
+            <button
+              class="flex w-full gap-3 justify-center border border-primaryGray font-bold rounded-full text-white py-2"
+            >
+              <img
+                src="{% static 'assets/img/google.png' %}"
+                class="w-6 my-auto"
+                alt=""
+              />
+              <span class="my-auto text-black">Google</span>
+            </button>
           </div>
         </form>
         <div
           class="div-footer absolute w-full bottom-10 md:relative mt-52 md:mt-8"
         >
-          <div class="form-control flex flex-row gap-2 mt-16">
+          <div class="form-control flex flex-row gap-2 mt-14">
             <a
               href="#"
               class="text-secGray border border-primaryGray rounded-full px-1 text-xl"
