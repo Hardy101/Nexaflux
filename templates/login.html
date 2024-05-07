@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -21,7 +21,7 @@
         },
       };
     </script>
-    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -100,7 +100,7 @@
             </button>
           </div>
           <div class="text-center my-5">
-            <span class="font-bold text-sm text-secGray">Or continue with</span>
+            <p class="font-bold text-sm text-secGray line">or continue with</p>
           </div>
           <div class="form-control mb-5">
             <button
@@ -115,7 +115,7 @@
             </button>
           </div>
         </form>
-        <div class="div-footer absolute w-full bottom-10 md:relative md:mt-32">
+        <div class="div-footer absolute w-full bottom-10 md:relative md:mt-28">
           <div class="form-control flex flex-row gap-2 mt-16">
             <a
               href="#"
