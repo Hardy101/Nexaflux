@@ -6,7 +6,7 @@ from alerts_and_data.models import Alert
 ENDPOINT = 'https://api.npoint.io/fc1045cc362997a2adb3'
 PRICE_ENDPOINT = 'https://min-api.cryptocompare.com/data/price'
 
-def still_valid():
+def getvaliddata():
     response = requests.get(ENDPOINT)
     data = response.json()
 
@@ -25,11 +25,21 @@ def still_valid():
     return due_entries
 
 def send_sms():
-    for entry in still_valid():
+    for entry in getvaliddata():
         print(entry['status'], entry['coin'])
 
+def getcoinprice(parameters):
+    data = requests.get(PRICE_ENDPOINT, params=parameters).json()
+    return data['USDT']
+
+
+def updatecoinstatus(id):
+    alert_instance = Alert.objects.get(pk=id)
+    alert_instance.status = 'fulfilled'
+    alert_instance.save()
+
 def check_price():
-    for item in still_valid():
+    for item in getvaliddata():
         id = item['id'] 
         target = item['target']
         coin = item['coin']
@@ -37,14 +47,11 @@ def check_price():
         params = {'fsym': coin, 'tsyms': 'USDT'}
 
         # Fetching price data
-        # data = requests.get(PRICE_ENDPOINT, params=params).json()
-        # price = data['USDT']
+        # price = getcoinprice(parameters=params)
         
         # Printing message
         print(f'congrats🎉 dear {recipient}, Your target of {target}USDT has been met,')
 
         # Updating status to 'fulfilled'
-        alert_instance = Alert.objects.get(pk=id)
-        alert_instance.status = 'fulfilled'
-        alert_instance.save()
+        updatecoinstatus(id=id)
 
