@@ -1,6 +1,6 @@
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
-from .tasks import still_valid, send_sms, check_price
+from .tasks import check_price
 
 def start():
 	scheduler = BackgroundScheduler()
