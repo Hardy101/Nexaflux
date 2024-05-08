@@ -30,4 +30,3 @@ def addAlert(request):
     else:
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
             
-    
