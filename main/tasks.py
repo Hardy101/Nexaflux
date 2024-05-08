@@ -33,7 +33,6 @@ def getcoinprice(parameters):
     data = requests.get(PRICE_ENDPOINT, params=parameters).json()
     return data['USDT']
 
-
 def updatecoinstatus(id):
     alert_instance = Alert.objects.get(pk=id)
     alert_instance.status = 'fulfilled'
